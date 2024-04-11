@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: rgb(16, 16, 14);
+    }
+    .rolldice{
+        display: flex;
+        margin-left: 650px;
+    }
+    .rolldice1{
+        margin: 30px;
+        font-size: 40px;
+    }
+    .yy{
+        text-align: center;
+        color: red;
+        /* margin-left: 50px; */
+    }
+    .ss{
+        margin-left: 600px;
+    }
+    .gg{
+        font-size: 30px;
+        background-color: forestgreen;
+
+    }
+    .jj{
+        font-size: 40px;
+    }
+
+    
+
+</style>
+<body>
+    <h1 class="yy">THE GAME OF DICE</h1>
+    <table class="ss">
+        <tr class="jj">
+            <td class="dice player1">Player1</td>
+            <td class="dice player2">Player2</td>
+        </tr>
+        <tr>
+            <td class="dice" id="one">
+                <img src="./dice5.jpg">
+            </td>
+            <td class="dice" id="two">
+                <img src="./dice3.jpg" >
+            </td>
+        </tr>
+    </table>
+    <div class="rolldice">
+        <div class="rolldice1">
+            <button onclick="roll()" class="gg">Roll</button>
+        </div>
+        <div class="rolldice1">
+            <button onclick="edit()" class="gg">Edit names</button>
+        </div>
+    </div>
+
+
+    <script>
+        let player1="player1"
+        let player2="player2"
+
+        function edit(){
+            player1=prompt("enter name of player1")
+            player2=prompt("enter name of player2")
+
+            document.querySelector(".player1").innerHTML=player1;
+            document.querySelector(".player2").innerHTML=player2;
+        }
+        function roll(){
+            let dicepics=[
+                "<img src='./dice11.jpg'>",
+                "<img src='./dice2.jpg'>",
+                "<img src='./dice3.jpg'>",
+                "<img src='./dice4.jpg'>",
+                "<img src='./dice5.jpg'>",
+                "<img src='./dice6.jpg'>",
+                
+
+
+            
+            ]
+            let dicepics1=[
+                "<img src='./dice11.jpg'>",
+                "<img src='./dice2.jpg'>",
+                "<img src='./dice3.jpg'>",
+                "<img src='./dice4.jpg'>",
+                "<img src='./dice5.jpg'>",
+                "<img src='./dice6.jpg'>",
+                
+
+
+            
+            ]
+             let roll1=dicepics[Math.floor(Math.random() * dicepics.length)];
+             document.querySelector("#one").innerHTML=roll1;
+             let roll2=dicepics1[Math.floor(Math.random() * dicepics1.length)];
+             document.querySelector("#two").innerHTML=roll2;
+
+
+
+             let result=document.querySelector(".yy")
+             if(roll1 > roll2){
+                result.innerHTML=(player1 + "wins the game")
+             }
+             else if(roll1 < roll2){
+                result.innerHTML=(player2 + "wins the game")
+
+             }
+             else{
+                result.innerHTML="match draw";
+             }
+
+
+
+        
+        }
+    </script>
+    
+</body>
+</html>
